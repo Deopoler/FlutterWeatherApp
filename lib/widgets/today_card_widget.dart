@@ -33,8 +33,9 @@ class TodayCard extends StatelessWidget {
                       Text(
                         "Today",
                         style: Theme.of(context).textTheme.headlineLarge?.apply(
-                            color: Theme.of(context).colorScheme.onBackground,
-                            fontWeightDelta: 2),
+                              color: Theme.of(context).colorScheme.onBackground,
+                              fontWeightDelta: 2,
+                            ),
                       ),
                       Text(
                         DateFormat.MMMEd().format(
@@ -61,11 +62,12 @@ class TodayCard extends StatelessWidget {
                                 .textTheme
                                 .headlineLarge
                                 ?.apply(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .onBackground,
-                                    fontSizeFactor: 2,
-                                    fontWeightDelta: 3),
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onBackground,
+                                  fontSizeFactor: 2,
+                                  fontWeightDelta: 3,
+                                ),
                           ),
                           Transform.translate(
                             offset: const Offset(0, 10),
@@ -77,6 +79,7 @@ class TodayCard extends StatelessWidget {
                                   ?.apply(
                                     color:
                                         Theme.of(context).colorScheme.primary,
+                                    fontWeightDelta: 2,
                                   ),
                             ),
                           ),

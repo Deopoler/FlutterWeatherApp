@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/services/weather_service.dart';
 
-import '../widgets/houly_card_widget.dart';
+import '../widgets/hourly_card_widget.dart';
 import '../widgets/today_card_widget.dart';
 
 class HomeScreen extends StatelessWidget {

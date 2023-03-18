@@ -7,7 +7,7 @@ import 'package:weather_app/services/geolocator_service.dart';
 
 class WeatherService {
   static const String baseURL =
-      "https://api.open-meteo.com/v1/forecast?hourly=temperature_2m,precipitation_probability,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto&current_weather=true&forecast_days=3";
+      "https://api.open-meteo.com/v1/forecast?hourly=temperature_2m,precipitation_probability,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto&current_weather=true";
 
   static http.Response? response;
   static String? location;
@@ -43,13 +43,18 @@ class WeatherService {
       final Map<String, dynamic> weather = jsonDecode(response!.body);
       final Map<String, dynamic> hourly = weather['hourly'];
       for (var i in List.generate(hourly['time'].length, (index) => index)) {
-        weathers.add(HourlyWeatherModel(
-          temperature: hourly['temperature_2m'][i],
-          weathercode: hourly['weathercode'][i],
-          precipitationProbability:
-              double.parse(hourly['precipitation_probability'][i].toString()),
-          time: hourly['time'][i],
-        ));
+        if (DateTime.parse(hourly['time'][i]).compareTo(DateTime.now()) > 0) {
+          weathers.add(HourlyWeatherModel(
+            temperature: hourly['temperature_2m'][i],
+            weathercode: hourly['weathercode'][i],
+            precipitationProbability: hourly['precipitation_probability'][i],
+            time: hourly['time'][i],
+          ));
+        }
+
+        if (weathers.length >= 24) {
+          break;
+        }
       }
       return weathers;
     }

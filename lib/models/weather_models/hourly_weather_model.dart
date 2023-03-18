@@ -1,10 +1,12 @@
 import 'package:intl/intl.dart';
 
+import 'weather_model_utils.dart';
+
 class HourlyWeatherModel {
   final double temperature;
   final int weathercode;
   late final String svg;
-  final double precipitationProbability;
+  final int precipitationProbability;
   String time;
 
   HourlyWeatherModel({
@@ -13,6 +15,12 @@ class HourlyWeatherModel {
     required this.precipitationProbability,
     required this.time,
   }) {
-    time = DateFormat.H().format(DateTime.parse(time));
+    final hour = DateTime.parse(time).hour;
+    time = DateFormat("h a").format(DateTime.parse(time));
+    if (hour <= 6 || hour >= 19) {
+      svg = weathercodeToNightSvg(weathercode);
+    } else {
+      svg = weathercodeToDaySvg(weathercode);
+    }
   }
 }

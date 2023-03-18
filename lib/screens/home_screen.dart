@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/services/weather_service.dart';
 
+import '../widgets/houly_card_widget.dart';
 import '../widgets/today_card_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -42,7 +43,42 @@ class HomeScreen extends StatelessWidget {
                   return const LinearProgressIndicator();
                 }
               },
-            )
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            FutureBuilder(
+              future: WeatherService.getHourlyWeather(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  final weather = snapshot.data!;
+                  return SizedBox(
+                    height: 225,
+                    child: ListView.separated(
+                      itemCount: weather.length,
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(
+                          width: 10,
+                        );
+                      },
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return HourlyCard(
+                          precipitationProbability:
+                              weather[index].precipitationProbability,
+                          svg: weather[index].svg,
+                          temperature: weather[index].temperature,
+                          time: weather[index].time,
+                          index: index,
+                        );
+                      },
+                    ),
+                  );
+                } else {
+                  return const SizedBox();
+                }
+              },
+            ),
           ],
         ),
       ),

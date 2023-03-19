@@ -1,12 +1,16 @@
 import 'dart:async';
+import 'dart:convert';
 
-import 'package:geocoding/geocoding.dart';
+import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 import 'package:weather_app/models/geolocation_model.dart';
 
 class GeolocatorService {
   static final GeolocatorPlatform _geolocatorPlatform =
       GeolocatorPlatform.instance;
+
+  static const String geoCodeURL =
+      "https://geocode.seonjin6804.workers.dev?lat=37.39942502642354&lon=127.27878478076991&lang=en&limit=1&format=json";
 
   static Future<bool> handlePermission() async {
     bool serviceEnabled;
@@ -39,8 +43,9 @@ class GeolocatorService {
 
     var currentPosition = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.low);
-    var placemarks = await placemarkFromCoordinates(
-        currentPosition.latitude, currentPosition.longitude);
-    return GeolocationModel(currentPosition, placemarks[0]);
+    final url = Uri.parse(geoCodeURL);
+    final response = await http.get(url);
+    final json = await jsonDecode(response.body);
+    return GeolocationModel(currentPosition, json);
   }
 }

@@ -9,6 +9,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2 # Only works with v2
+      - uses: actions/checkout@v3
+        with:
+          ref: gh-pages
       - uses: subosito/flutter-action@v2
-      - uses: bluefireteam/flutter-gh-pages@v7
+      - name: build web
+        run: flutter pub get
+        run: flutter test
+        run: flutter build web --release
+      - name: deploy
+        working-directory: ./build/web
+        run: |
+          git config user.name deopoler
+          git config user.email seonjin6804@gmail.com
+          git add .
+          git commit -m "build: build web"
+          git push
+      

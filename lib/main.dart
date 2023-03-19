@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/constants/color_schemes.dart';
+import 'package:weather_app/constants/scroll_behavior.dart';
 import 'package:weather_app/screens/home_screen.dart';
 
 void main() {
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       home: const HomeScreen(),
+      scrollBehavior: MyCustomScrollBehavior(),
     );
   }
 }

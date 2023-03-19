@@ -69828,7 +69828,7 @@ A.a1t.prototype={
 gzl(){return A.cX([B.c5,B.bG],t.T)}}
 A.GC.prototype={
 V(a){var s=null,r=A.aka(B.S,s,s,s).p3,q=A.eV(r.a),p=A.eV(r.b),o=A.eV(r.c),n=A.eV(r.d),m=A.eV(r.e),l=A.eV(r.f),k=A.eV(r.r),j=A.eV(r.w),i=A.eV(r.x)
-return new A.wa(B.Ek,"Flutter Demo",A.aka(s,B.zF,A.a9n(A.eV(r.y),A.eV(r.z),A.eV(r.Q),q,p,o,n,m,l,A.eV(r.as),A.eV(r.at),A.eV(r.ax),k,j,i),!0),new A.a1t(s),s)}}
+return new A.wa(B.Ek,"Weather Forecast",A.aka(s,B.zF,A.a9n(A.eV(r.y),A.eV(r.z),A.eV(r.Q),q,p,o,n,m,l,A.eV(r.as),A.eV(r.at),A.eV(r.ax),k,j,i),!0),new A.a1t(s),s)}}
 A.Fr.prototype={}
 A.n0.prototype={}
 A.rp.prototype={}

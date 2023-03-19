@@ -10,8 +10,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: gh-pages
       - uses: subosito/flutter-action@v2
       - name: build web
         run: |

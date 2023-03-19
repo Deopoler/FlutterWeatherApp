@@ -3,8 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/constants/color_schemes.dart';
 import 'package:weather_app/constants/scroll_behavior.dart';
 import 'package:weather_app/screens/home_screen.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() {
+  usePathUrlStrategy();
   runApp(const MyApp());
 }
 

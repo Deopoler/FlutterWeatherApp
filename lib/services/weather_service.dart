@@ -7,7 +7,7 @@ import 'package:weather_app/services/geolocator_service.dart';
 
 class WeatherService {
   static const String baseURL =
-      "https://api.open-meteo.com/v1/forecast?hourly=temperature_2m,precipitation_probability,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto&current_weather=true";
+      "https://api.open-meteo.com/v1/forecast?hourly=temperature_2m,precipitation_probability,weathercode&timezone=auto&current_weather=true";
 
   static http.Response? response;
   static String? location;

@@ -22572,7 +22572,7 @@ case 2:q=b
 $.api=q.c
 p=$
 s=3
-return A.a5(A.aru(A.lZ("https://api.open-meteo.com/v1/forecast?hourly=temperature_2m,precipitation_probability,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto&current_weather=true&latitude="+A.e(q.a)+"&longitude="+A.e(q.b),0,null)),$async$yT)
+return A.a5(A.aru(A.lZ("https://api.open-meteo.com/v1/forecast?hourly=temperature_2m,precipitation_probability,weathercode&timezone=auto&current_weather=true&latitude="+A.e(q.a)+"&longitude="+A.e(q.b),0,null)),$async$yT)
 case 3:p.KS=b
 return A.a0(null,r)}})
 return A.a1($async$yT,r)},

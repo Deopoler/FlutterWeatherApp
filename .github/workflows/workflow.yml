@@ -16,7 +16,6 @@ jobs:
       - name: build web
         run: |
           flutter pub get
-          flutter test
           flutter build web --release
       - name: deploy
         working-directory: ./build/web

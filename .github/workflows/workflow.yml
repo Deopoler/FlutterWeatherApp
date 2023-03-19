@@ -16,7 +16,7 @@ jobs:
       - name: build web
         run: |
           flutter pub get
-          flutter build web --release
+          flutter build web --release --base-href ""
       - name: Deploy
         uses: s0/git-publish-subdir-action@develop
         env:

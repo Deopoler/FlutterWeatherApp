@@ -10,7 +10,7 @@ class GeolocatorService {
       GeolocatorPlatform.instance;
 
   static const String geoCodeURL =
-      "https://geocode.seonjin6804.workers.dev?lat=37.39942502642354&lon=127.27878478076991&lang=en&limit=1&format=json";
+      "https://geocode.seonjin6804.workers.dev?lang=en&limit=1&format=json";
 
   static Future<bool> handlePermission() async {
     bool serviceEnabled;
@@ -43,7 +43,8 @@ class GeolocatorService {
 
     var currentPosition = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.low);
-    final url = Uri.parse(geoCodeURL);
+    final url = Uri.parse(
+        "$geoCodeURL&lat=${currentPosition.latitude}&lon=${currentPosition.longitude}");
     final response = await http.get(url);
     final json = await jsonDecode(response.body);
     return GeolocationModel(currentPosition, json);

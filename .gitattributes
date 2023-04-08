@@ -4,3 +4,5 @@
 **/*.cmake linguist-vendored
 **/*.h linguist-vendored
 **/*.swift linguist-vendored
+**/*.html linguist-vendored
+**/*.kt linguist-vendored

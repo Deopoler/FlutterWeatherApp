@@ -1,6 +1,6 @@
-*.cc linguist-vendored
-*.cpp linguist-vendored
-*.txt linguist-vendored
-*.cmake linguist-vendored
-*.h linguist-vendored
-*.swift linguist-vendored
+**/*.cc linguist-vendored
+**/*.cpp linguist-vendored
+**/*.txt linguist-vendored
+**/*.cmake linguist-vendored
+**/*.h linguist-vendored
+**/*.swift linguist-vendored
